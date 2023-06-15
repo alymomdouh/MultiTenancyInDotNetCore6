@@ -5,3 +5,5 @@ global using MultiTenancyInDotNetCore6.API.IServices;
 global using MultiTenancyInDotNetCore6.API.Services;
 global using MultiTenancyInDotNetCore6.API.Settings;
 global using MultiTenancyInDotNetCore6.API.Data;
+global using MultiTenancyInDotNetCore6.API.Dtos;
+global using MultiTenancyInDotNetCore6.API.Models;
