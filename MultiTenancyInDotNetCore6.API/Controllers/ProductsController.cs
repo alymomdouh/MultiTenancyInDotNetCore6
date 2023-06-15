@@ -21,7 +21,7 @@ namespace MultiTenancyInDotNetCore6.API.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetAsync(int id)
         {
-            var product = await _productService.GetByIdAsync(id); 
+            var product = await _productService.GetByIdAsync(id);
             return product is null ? NotFound() : Ok(product);
         }
         [HttpPost]
@@ -32,8 +32,8 @@ namespace MultiTenancyInDotNetCore6.API.Controllers
                 Name = dto.Name,
                 Description = dto.Description,
                 Rate = dto.Rate,
-            }; 
-            var createdProduct = await _productService.CreatedAsync(product); 
+            };
+            var createdProduct = await _productService.CreatedAsync(product);
             return Ok(createdProduct);
         }
     }
