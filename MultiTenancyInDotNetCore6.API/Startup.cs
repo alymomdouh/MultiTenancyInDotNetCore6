@@ -15,6 +15,11 @@ namespace MultiTenancyInDotNetCore6.API
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.Configure<TenantSettings>(Configuration.GetSection(nameof(TenantSettings)));
+            TenantSettings options = new();
+            Configuration.GetSection(nameof(TenantSettings)).Bind(options);
+
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
