@@ -1,4 +1,3 @@
-using Microsoft.OpenApi.Models;
 
 namespace MultiTenancyInDotNetCore6.API
 {
@@ -15,9 +14,11 @@ namespace MultiTenancyInDotNetCore6.API
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.Configure<TenantSettings>(Configuration.GetSection(nameof(TenantSettings)));
             TenantSettings options = new();
             Configuration.GetSection(nameof(TenantSettings)).Bind(options);
+            services.AddTransient<ITenantService, TenantService>();
 
 
             services.AddControllers();
