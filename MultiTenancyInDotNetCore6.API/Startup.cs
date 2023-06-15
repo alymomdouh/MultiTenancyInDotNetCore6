@@ -19,6 +19,7 @@ namespace MultiTenancyInDotNetCore6.API
             TenantSettings options = new();
             Configuration.GetSection(nameof(TenantSettings)).Bind(options);
             services.AddTransient<ITenantService, TenantService>();
+            services.AddTransient<IProductService, ProductService>();
 
             //Configure DbContext
             var defaultDbProvider = options.Defaults.DBProvider; 
